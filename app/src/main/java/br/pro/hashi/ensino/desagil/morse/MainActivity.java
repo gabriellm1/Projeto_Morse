@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
 
         // Depois de abrir a CuidadorActivity, não há porque manter a MainActivity aberta.
-        finish();
+        //finish();
     }
     private void openRafaelActivity() {
         // Exemplo de código para abrir uma activity. Especificamente, a RafaelActivity.
@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
 
         // Depois de abrir a CuidadorActivity, não há porque manter a MainActivity aberta.
-        finish();
+        //finish();
     }
 
 

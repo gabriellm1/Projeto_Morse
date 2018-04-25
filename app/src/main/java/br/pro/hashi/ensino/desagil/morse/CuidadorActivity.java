@@ -12,7 +12,8 @@ public class CuidadorActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cuidador);
 
-
+        getSupportActionBar().setTitle("Mensagem para Cuidador");//Titulo da pagina
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);//botao de voltar
 
         Button button_sede = (Button) findViewById(R.id.button_sede);
         Button button_ban = (Button) findViewById(R.id.button_ban);

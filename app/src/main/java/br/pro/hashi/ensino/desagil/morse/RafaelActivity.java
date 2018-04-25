@@ -12,7 +12,8 @@ public class RafaelActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rafael);
 
-
+        getSupportActionBar().setTitle("Mensagem para Rafael");//titulo da pagina
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);//Botao de voltar
 
         Button button_sos = (Button) findViewById(R.id.button_sos);
         Button button_compras = (Button) findViewById(R.id.button_compras);

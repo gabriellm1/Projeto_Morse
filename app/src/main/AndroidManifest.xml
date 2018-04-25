@@ -19,7 +19,11 @@
         </activity>
 
         <!-- Essa tag é criada manualmente, quando você usa File -> New -> Activity. -->
-        <activity android:name="br.pro.hashi.ensino.desagil.morse.CuidadorActivity">
+        <activity android:name="br.pro.hashi.ensino.desagil.morse.CuidadorActivity"
+            android:parentActivityName="br.pro.hashi.ensino.desagil.morse.MainActivity">
+        </activity>
+        <activity android:name="br.pro.hashi.ensino.desagil.morse.RafaelActivity"
+            android:parentActivityName="br.pro.hashi.ensino.desagil.morse.MainActivity">
         </activity>
 
     </application>
