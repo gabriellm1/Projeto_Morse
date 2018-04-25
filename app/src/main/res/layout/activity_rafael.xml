@@ -14,7 +14,8 @@
         android:layout_columnSpan="1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="EMERGÊNCIA" />
+        android:text="EMERGÊNCIA"
+        android:backgroundTint="@android:color/holo_blue_light"/>
 
 
     <Button android:id="@+id/button_compras"
@@ -22,6 +23,7 @@
         android:layout_columnSpan="1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Mercado" />
+        android:text="Mercado"
+        android:backgroundTint="@android:color/holo_blue_light"/>
 
 </GridLayout>
