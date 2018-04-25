@@ -10,7 +10,7 @@
     tools:context=".RafaelActivity">
 
     <Button android:id="@+id/button_sos"
-        android:layout_rowSpan="1"
+        android:layout_rowSpan="2"
         android:layout_columnSpan="1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -18,8 +18,8 @@
 
 
     <Button android:id="@+id/button_compras"
-        android:layout_rowSpan="4"
-        android:layout_columnSpan="2"
+        android:layout_rowSpan="2"
+        android:layout_columnSpan="1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Mercado" />
