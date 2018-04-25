@@ -18,19 +18,18 @@ public class RafaelActivity extends AppCompatActivity {
         Button button_sos = (Button) findViewById(R.id.button_sos);
         Button button_compras = (Button) findViewById(R.id.button_compras);
 
-
         button_sos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String message = "URGENTE, preciso de ajuda";
+                String message = "AJUDA AGORA";
                 SmsManager manager = SmsManager.getDefault();
-                manager.sendTextMessage("011975624243", null, message, null, null);
+                manager.sendTextMessage("011995624243", null, message, null, null);
             }
         });
         button_compras.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String message = "Preciso que você compre coisas";
+                String message = "Preciso que compre algo para mim.";
                 SmsManager manager = SmsManager.getDefault();
                 manager.sendTextMessage("011975624243", null, message, null, null);
             }

@@ -18,7 +18,6 @@ public class CuidadorActivity extends AppCompatActivity {
         Button button_sede = (Button) findViewById(R.id.button_sede);
         Button button_ban = (Button) findViewById(R.id.button_ban);
 
-
         button_sede.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

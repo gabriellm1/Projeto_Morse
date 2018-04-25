@@ -38,6 +38,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        getSupportActionBar().setTitle("Morsi");//titulo da pagina
+
+
         Button button_cuidador = (Button) findViewById(R.id.button_cuidador);
         Button button_rafael = (Button) findViewById(R.id.button_rafael);
 
