@@ -23,7 +23,7 @@ public class RafaelActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String message = "AJUDA AGORA";
                 SmsManager manager = SmsManager.getDefault();
-                manager.sendTextMessage("011995624243", null, message, null, null);
+                manager.sendTextMessage("011993321768", null, message, null, null);
             }
         });
         button_compras.setOnClickListener(new View.OnClickListener() {
@@ -31,7 +31,7 @@ public class RafaelActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String message = "Preciso que compre algo para mim.";
                 SmsManager manager = SmsManager.getDefault();
-                manager.sendTextMessage("011975624243", null, message, null, null);
+                manager.sendTextMessage("011993321768", null, message, null, null);
             }
         });
 
