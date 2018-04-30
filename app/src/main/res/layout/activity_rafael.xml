@@ -3,27 +3,29 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:layout_gravity="center_vertical"
-    android:rowCount="2"
-    android:columnCount="6"
+    android:columnCount="3"
+    android:rowCount="6"
     tools:context=".RafaelActivity">
 
-    <Button android:id="@+id/button_sos"
-        android:layout_rowSpan="2"
-        android:layout_columnSpan="1"
-        android:layout_width="wrap_content"
+    <Button
+        android:id="@+id/button_send1"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="EMERGÊNCIA"
-        android:backgroundTint="@android:color/holo_blue_light"/>
+        android:backgroundTint="@android:color/holo_blue_light"
+        android:text="SEND"
+        android:layout_column="0"
+        android:layout_row="4" />
 
 
-    <Button android:id="@+id/button_compras"
-        android:layout_rowSpan="2"
-        android:layout_columnSpan="1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Mercado"
-        android:backgroundTint="@android:color/holo_blue_light"/>
+    <Spinner
+        android:id="@+id/spinner2"
+        android:layout_width="match_parent"
+        android:layout_height="99dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_column="0"
+        android:layout_row="1" />
 
 </GridLayout>
