@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         Button button_send0 = (Button) findViewById(R.id.button_send0);
         Button button_send1 = (Button) findViewById(R.id.button_send1);
 
-        final String[] mensagem = {"Fabio está selecionando uma mensagem..."};
+        final String[] msg = {"Fabio está selecionando uma msg..."};
         Spinner mySpinner = (Spinner) findViewById(R.id.spinner);
 
         ArrayAdapter<String> myAdapter = new ArrayAdapter<String>(MainActivity.this,
@@ -38,25 +38,24 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 if (i == 0) {
-                    mensagem[0] = "Fabio está selecionando uma mensagem...";
+                    msg[0] = "Fabio está selecionando uma msg...";
                 } else if (i == 1) {
-                    mensagem[0] = "PRECISO DE AGUA";
+                    msg[0] = "PRECISO DE AGUA";
                 } else if (i == 2) {
-                    mensagem[0] = "PRECISO DE COMIDA";
+                    msg[0] = "PRECISO DE COMIDA";
                 } else if (i == 3) {
-                    mensagem[0] = "PRECISO IR AO BANHEIRO";
+                    msg[0] = "PRECISO IR AO BANHEIRO";
                 } else if (i == 4) {
-                    mensagem[0] = "PRECISO DE AJUDA AGORA";
+                    msg[0] = "PRECISO DE AJUDA AGORA";
                 } else if (i == 5) {
-                    mensagem[0] = "PRECISO QUE COMPRE ALGO PRA MIM";
+                    msg[0] = "PRECISO QUE COMPRE ALGO PRA MIM";
                 }
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-                mensagem[0] = null;
+                msg[0] = null;
             }
-
         });
 
         final String[] list = {""};
@@ -65,9 +64,6 @@ public class MainActivity extends AppCompatActivity {
         final String[] mCodes={/*Stop*/ "*-*-*- ", /*quotation marks*/ "*-**-* ", /*comma*/ "--**-- ", /*question mark*/ "**--** ", /*parentheses*/"-*--*- ", "-*--*-", /*apostrophe*/ "*----* ", /*exclamation mark*/ "-*-*-- ", /*slash*/ "-**-* ", /*numbers*/ "*---- ", "**--- ", "***-- ", "****- ", "***** ", "-**** ", "--*** ", "---** ", "----* ", "----- ", /*Letters*/ "--** ", "-*-- ", "-**- ", "*--- ", "*--* ", "***- ", "*-- ", "**-* ", "**- ", "-*-* ", "-*** ", "**** ", "*-** ", "*** ", "*-* ", "-** ", "--*- ", "-*- ", "--* ", "*- ", "-* ", "--- ", "** ", "-- ", "- ", "* "};
 
         final String[] chars={".", "\"", ",", "?", "(", ")", "'", "!", "/", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "z", "y", "x", "j", "p", "v", "w", "f", "u", "c", "b", "h", "l", "s", "r", "d", "q", "k", "g", "a", "n", "o", "i", "m", "t", "e"};
-
-
-
 
         button_morse.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -110,44 +106,35 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-
-
-
-
-
         button_send0.setOnClickListener(new View.OnClickListener() {
+            String message = null;
+
             @Override
             public void onClick(View view) {
-                if (mensagem[0] != "Fabio está selecionando uma mensagem...") {
-                    String message = mensagem[0];
-                    SmsManager manager = SmsManager.getDefault();
-                    manager.sendTextMessage("011993321768", null, message, null, null);
+                if (msg[0] != "Fabio está selecionando uma msg...") {
+                    message = msg[0];
                 }
-                if (mensagem[0] == "Fabio está selecionando uma mensagem...") {
-                    String message = list[0];
-                    SmsManager manager = SmsManager.getDefault();
-                    manager.sendTextMessage("011993321768", null, message, null, null);
+                if (msg[0] == "Fabio está selecionando uma msg...") {
+                    message = list[0];
                 }
-                ;
-
+                SmsManager manager = SmsManager.getDefault();
+                manager.sendTextMessage("011994529712", null, message, null, null);
             }
         });
 
         button_send1.setOnClickListener(new View.OnClickListener() {
+            String message = null;
+
             @Override
             public void onClick(View view) {
-                if (mensagem[0] != "Fabio está selecionando uma mensagem...") {
-                    String message = mensagem[0];
-                    SmsManager manager = SmsManager.getDefault();
-                    manager.sendTextMessage("011993321768", null, message, null, null);
+                if (msg[0] != "Fabio está selecionando uma msg...") {
+                    message = msg[0];
                 }
-                if (mensagem[0] == "Fabio está selecionando uma mensagem...") {
-                    String message = list[0];
-                    SmsManager manager = SmsManager.getDefault();
-                    manager.sendTextMessage("011993321768", null, message, null, null);
+                if (msg[0] == "Fabio está selecionando uma msg...") {
+                    message = list[0];
                 }
-
+                SmsManager manager = SmsManager.getDefault();
+                manager.sendTextMessage("011994529712", null, message, null, null);
 
             }
         });
