@@ -13,10 +13,9 @@
         android:id="@+id/button_send1"
         android:layout_width="190dp"
         android:layout_height="109dp"
-        android:layout_above="@+id/button_test"
+        android:layout_above="@+id/button_space"
         android:layout_alignParentEnd="true"
         android:layout_column="0"
-        android:layout_marginBottom="-6dp"
         android:layout_row="4"
         android:backgroundTint="@android:color/holo_blue_light"
         android:text="MANDAR PARA RAFAEL" />
@@ -43,7 +42,7 @@
         android:layout_row="1" />
 
     <Button
-        android:id="@+id/button_test"
+        android:id="@+id/button_morse"
         android:layout_width="match_parent"
         android:layout_height="87dp"
         android:layout_alignParentBottom="true"
@@ -51,8 +50,34 @@
         android:layout_column="0"
         android:layout_marginBottom="14dp"
         android:layout_row="6"
-        android:backgroundTint="@android:color/holo_red_light"
+        android:backgroundTint="@android:color/darker_gray"
         android:elevation="17dp"
         android:text="MORSE" />
+
+    button_space
+
+    <Button
+        android:id="@+id/button_space"
+        android:layout_width="match_parent"
+        android:layout_height="87dp"
+        android:layout_above="@+id/button_morse"
+        android:layout_alignParentStart="true"
+        android:layout_column="0"
+        android:layout_row="6"
+        android:backgroundTint="@android:color/holo_red_light"
+        android:elevation="17dp"
+        android:text="ESPAÇO" />
+
+    <TextView
+        android:id="@+id/messageText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="80dp"
+        android:padding="5sp"
+        android:text=""
+        android:textSize="18sp" />
+
 
 </RelativeLayout>
