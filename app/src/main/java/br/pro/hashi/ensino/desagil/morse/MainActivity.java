@@ -62,11 +62,17 @@ public class MainActivity extends AppCompatActivity {
         final String[] list = {""};
         final TextView messageText = (TextView) findViewById(R.id.messageText);
 
+        final String[] mCodes={/*Stop*/ "*-*-*- ", /*quotation marks*/ "*-**-* ", /*comma*/ "--**-- ", /*question mark*/ "**--** ", /*parentheses*/"-*--*- ", "-*--*-", /*apostrophe*/ "*----* ", /*exclamation mark*/ "-*-*-- ", /*slash*/ "-**-* ", /*numbers*/ "*---- ", "**--- ", "***-- ", "****- ", "***** ", "-**** ", "--*** ", "---** ", "----* ", "----- ", /*Letters*/ "--** ", "-*-- ", "-**- ", "*--- ", "*--* ", "***- ", "*-- ", "**-* ", "**- ", "-*-* ", "-*** ", "**** ", "*-** ", "*** ", "*-* ", "-** ", "--*- ", "-*- ", "--* ", "*- ", "-* ", "--- ", "** ", "-- ", "- ", "* "};
+
+        final String[] chars={".", "\"", ",", "?", "(", ")", "'", "!", "/", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "z", "y", "x", "j", "p", "v", "w", "f", "u", "c", "b", "h", "l", "s", "r", "d", "q", "k", "g", "a", "n", "o", "i", "m", "t", "e"};
+
+
+
 
         button_morse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                list[0] += "* ";
+                list[0] += "*";
 
                 messageText.setText(list[0]);
             }
@@ -75,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
         button_morse.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
-                list[0] += "- ";
+                list[0] += "-";
                 messageText.setText(list[0]);
 
                 return true;
@@ -85,21 +91,30 @@ public class MainActivity extends AppCompatActivity {
         button_space.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                list[0] += "  ";
+                list[0] += " ";
 
-                messageText.setText(list[0]);
+                for(int a=0; a<=44; a++){
+                    list[0]=list[0].replace(mCodes[a], chars[a]);
+                    messageText.setText(list[0]);
+                }
             }
         });
 
         button_space.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
-                list[0] += list[0].length();
+                list[0] ="";
                 messageText.setText(list[0]);
 
                 return true;
             }
         });
+
+
+
+
+
+
 
         button_send0.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -136,5 +151,6 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
     }
 }
