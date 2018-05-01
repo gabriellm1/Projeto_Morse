@@ -7,29 +7,32 @@
     android:layout_gravity="center_vertical"
     android:rowCount="6"
     android:columnCount="3"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:weightSum="2">
 
     <Button
         android:id="@+id/button_send1"
         android:layout_width="190dp"
         android:layout_height="109dp"
-        android:layout_above="@+id/button_space"
-        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@+id/button_send0"
         android:layout_column="0"
         android:layout_row="4"
+        android:layout_weight="2"
         android:backgroundTint="@android:color/holo_blue_light"
-        android:text="MANDAR PARA RAFAEL" />
+        android:text="PARA RAFAEL" />
 
     <Button
         android:id="@+id/button_send0"
-        android:layout_width="wrap_content"
+        android:layout_width="190dp"
         android:layout_height="109dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignTop="@+id/button_send1"
-        android:layout_column="0"
+        android:layout_above="@+id/button_space"
+        android:layout_alignParentEnd="true"
+        android:layout_column="1"
         android:layout_row="4"
         android:backgroundTint="@android:color/holo_orange_light"
-        android:text="MANDAR PARA CUIDADOR" />
+        android:text="PARA CUIDADOR"
+        android:layout_weight="1"/>
 
 
     <Spinner
@@ -66,7 +69,7 @@
         android:layout_row="6"
         android:backgroundTint="@android:color/holo_red_light"
         android:elevation="17dp"
-        android:text="ESPAÇO" />
+        android:text="ESPAÇO/APAGAR" />
 
     <TextView
         android:id="@+id/messageText"
