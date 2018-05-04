@@ -115,10 +115,13 @@ public class MainActivity extends AppCompatActivity {
                     message = msg[0];
                 }
                 if (msg[0] == "Fabio está selecionando uma msg...") {
+                    for(int a=0; a<=44; a++){
+                        list[0]=list[0].replace(mCodes[a], chars[a]);}
                     message = list[0];
+
                 }
                 SmsManager manager = SmsManager.getDefault();
-                manager.sendTextMessage("011994529712", null, message, null, null);
+                manager.sendTextMessage("011975624243", null, message, null, null);
             }
         });
 
@@ -131,10 +134,12 @@ public class MainActivity extends AppCompatActivity {
                     message = msg[0];
                 }
                 if (msg[0] == "Fabio está selecionando uma msg...") {
-                    message = list[0];
+                    for(int a=0; a<=44; a++){
+                        list[0]=list[0].replace(mCodes[a], chars[a]);}
+                        message = list[0];
                 }
                 SmsManager manager = SmsManager.getDefault();
-                manager.sendTextMessage("011994529712", null, message, null, null);
+                manager.sendTextMessage("011999615552", null, message, null, null);
 
             }
         });

@@ -12,7 +12,7 @@
 
     <Button
         android:id="@+id/button_send1"
-        android:layout_width="190dp"
+        android:layout_width="140dp"
         android:layout_height="109dp"
         android:layout_alignParentStart="true"
         android:layout_alignTop="@+id/button_send0"
@@ -24,7 +24,7 @@
 
     <Button
         android:id="@+id/button_send0"
-        android:layout_width="190dp"
+        android:layout_width="140dp"
         android:layout_height="109dp"
         android:layout_above="@+id/button_space"
         android:layout_alignParentEnd="true"
@@ -33,6 +33,7 @@
         android:backgroundTint="@android:color/holo_orange_light"
         android:text="PARA CUIDADOR"
         android:layout_weight="1"/>
+
 
 
     <Spinner
