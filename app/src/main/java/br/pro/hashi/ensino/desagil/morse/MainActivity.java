@@ -14,7 +14,6 @@ import android.widget.TextView;
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
-
     private Translator translator = new Translator();
 
     @Override
@@ -26,8 +25,8 @@ public class MainActivity extends AppCompatActivity {
 
         Button button_morse = findViewById(R.id.button_morse);
         Button button_space = findViewById(R.id.button_space);
-        Button button_send0 = findViewById(R.id.button_send0);
-        Button button_send1 = findViewById(R.id.button_send1);
+        Button sendCuida = findViewById(R.id.button_sendCuida);
+        Button sendRafa = findViewById(R.id.button_sendRafa);
 
         final String[] msg = {"Fabio está selecionando uma msg..."};
         Spinner mySpinner = findViewById(R.id.spinner);
@@ -60,16 +59,16 @@ public class MainActivity extends AppCompatActivity {
                 msg[0] = null;
             }
         });
-
-        final StringBuilder currentChar = new StringBuilder();
-        final StringBuilder messageTrans = new StringBuilder();
+        
+        final StringBuilder currentChar = new StringBuilder();//letra que está sendo digitada 
+        final StringBuilder messageTrans = new StringBuilder();// mensagem completa traduzida
         final TextView messageText = findViewById(R.id.messageText);
 
         button_morse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 currentChar.append(".");
-                String displayText = messageTrans.toString()+currentChar;
+                String displayText = messageTrans.toString()+currentChar;//menssagem exibida para o usuario 
                 messageText.setText(displayText);
             }
         });
@@ -78,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onLongClick(View view) {
                 currentChar.append("-");
-                String displayText = messageTrans.toString()+currentChar;
+                String displayText = messageTrans.toString()+currentChar;//menssagem exibida para o usuario 
                 messageText.setText(displayText);
                 return true;
             }
@@ -88,28 +87,26 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-               
-                String penis = currentChar.toString();
-                char msg =  translator.morseToChar(currentChar.toString());
-                currentChar.setLength(0);
+                char msg =  translator.morseToChar(currentChar.toString());//traduz o caracter
+                currentChar.setLength(0);// da reset na letra que esta sendo escrita
                 messageTrans.append(msg);
-                String displayText = messageTrans.toString();
+                String displayText = messageTrans.toString(); //menssagem exibida para o usuario 
                 messageText.setText(displayText);
                 }
-
         });
 
         button_space.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
-            public boolean onLongClick(View view) {
-                StringBuilder currentChar = new StringBuilder();
+            public boolean onLongClick(View view) {// da reset na mensagem e  no display
+                currentChar.setLength(0);
+                messageTrans.setLength(0);
                 messageText.setText(messageTrans.toString());
 
                 return true;
             }
         });
 
-        button_send0.setOnClickListener(new View.OnClickListener() {
+        sendCuida.setOnClickListener(new View.OnClickListener() {
             String message = null;
 
             @SuppressLint("UnlocalizedSms")
@@ -126,7 +123,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        button_send1.setOnClickListener(new View.OnClickListener() {
+        sendRafa.setOnClickListener(new View.OnClickListener() {
             String message = null;
 
             @SuppressLint("UnlocalizedSms")
