@@ -15,6 +15,8 @@ import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
+    private Translator translator = new Translator();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,25 +61,25 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        final String[] list = {""};
+        final StringBuilder currentChar = new StringBuilder();
+        final StringBuilder messageTrans = new StringBuilder();
         final TextView messageText = findViewById(R.id.messageText);
 
         button_morse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Translator translator = new Translator();
-                list[0] += ".";
-                char meg_trans = translator.morseToChar(list[0]);
-                messageText.setText(meg_trans);
+                currentChar.append(".");
+                String displayText = messageTrans.toString()+currentChar;
+                messageText.setText(displayText);
             }
         });
 
         button_morse.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
-                list[0] += "-";
-                messageText.setText(list[0]);
-
+                currentChar.append("-");
+                String displayText = messageTrans.toString()+currentChar;
+                messageText.setText(displayText);
                 return true;
             }
         });
@@ -86,10 +88,13 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                Translator translator = new Translator();
-                list[0] += " ";
-                translator.morseToChar(list[0]);
-                messageText.setText(translator.morseToChar(list[0]));
+               
+                String penis = currentChar.toString();
+                char msg =  translator.morseToChar(currentChar.toString());
+                currentChar.setLength(0);
+                messageTrans.append(msg);
+                String displayText = messageTrans.toString();
+                messageText.setText(displayText);
                 }
 
         });
@@ -97,8 +102,8 @@ public class MainActivity extends AppCompatActivity {
         button_space.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
-                list[0] ="";
-                messageText.setText(list[0]);
+                StringBuilder currentChar = new StringBuilder();
+                messageText.setText(messageTrans.toString());
 
                 return true;
             }
@@ -114,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
                     message = msg[0];
                 }
                 if (msg[0].equals("Fabio está selecionando uma msg...")) {
-                    message = list[0];
+                    message = messageTrans.toString();
                 }
                 SmsManager manager = SmsManager.getDefault();
                 manager.sendTextMessage("011994529712", null, message, null, null);
@@ -131,7 +136,7 @@ public class MainActivity extends AppCompatActivity {
                     message = msg[0];
                 }
                 if (msg[0].equals("Fabio está selecionando uma msg...")) {
-                    message = list[0];
+                    message = messageTrans.toString();
                 }
                 SmsManager manager = SmsManager.getDefault();
                 manager.sendTextMessage("011994529712", null, message, null, null);
