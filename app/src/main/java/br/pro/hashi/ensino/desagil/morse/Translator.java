@@ -140,7 +140,6 @@ public class Translator {
         d.setRightChild(x);
         this.map.put('x',x);
 
-
         Node c = new Node('c');
         k.setLeftChild(c);
         c.setParent(k);
