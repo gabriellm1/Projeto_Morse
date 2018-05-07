@@ -31,10 +31,13 @@ public class MainActivity extends AppCompatActivity {
         final String[] msg = {"Fabio está selecionando uma msg..."};
         Spinner mySpinner = findViewById(R.id.spinner);
 
-        ArrayAdapter<String> myAdapter = new ArrayAdapter<>(MainActivity.this,
+
+        ArrayAdapter<String> myAdapter1 = new ArrayAdapter<>(MainActivity.this,
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.names0));
-        myAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        mySpinner.setAdapter(myAdapter);
+        myAdapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        mySpinner.setAdapter(myAdapter1);
+
+
 
         mySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -52,6 +55,28 @@ public class MainActivity extends AppCompatActivity {
                 } else if (i == 5) {
                     msg[0] = "PRECISO QUE COMPRE ALGO PRA MIM";
                 }
+            }
+
+
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                msg[0] = null;
+            }
+        });
+
+
+        Spinner myDictionary = findViewById(R.id.dictionary);
+
+        ArrayAdapter<String> myAdapter2 = new ArrayAdapter<>(MainActivity.this,
+                android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.names0));
+        myAdapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        myDictionary.setAdapter(myAdapter2);
+
+        myDictionary.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
             }
 
             @Override
