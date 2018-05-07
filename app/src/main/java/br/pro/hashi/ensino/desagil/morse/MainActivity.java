@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.telephony.SmsManager;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -11,6 +12,7 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import java.util.LinkedList;
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
@@ -32,10 +34,10 @@ public class MainActivity extends AppCompatActivity {
         Spinner mySpinner = findViewById(R.id.spinner);
 
 
-        ArrayAdapter<String> myAdapter1 = new ArrayAdapter<>(MainActivity.this,
+        ArrayAdapter<String> myAdapter = new ArrayAdapter<>(MainActivity.this,
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.names0));
-        myAdapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        mySpinner.setAdapter(myAdapter1);
+        myAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        mySpinner.setAdapter(myAdapter);
 
 
 
@@ -65,23 +67,76 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // creating list dictionary letter - code
+        char letter = 'a';
+        char number = '0';
+        String line;
+        int i;
+        LinkedList<String> dic1 = new LinkedList<String>();
+        dic1.add("GUIA letra - código");
+        for (i = 0; i < 26; i++) {
 
-        Spinner myDictionary = findViewById(R.id.dictionary);
+
+            line = translator.charToMorse(letter);
+            dic1.add(letter + " = " + line);
+            letter += 1;
+        }
+        for (i = 0; i < 10; i++){
+            line = translator.charToMorse(number);
+            dic1.add(number + " = " + line);
+            number += 1;
+        }
+
+
+        Spinner myDictionary1 = findViewById(R.id.dictionary1);
+
+        ArrayAdapter<String> myAdapter1 = new ArrayAdapter<>(MainActivity.this,
+                android.R.layout.simple_list_item_1, dic1);
+        myAdapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        myDictionary1.setAdapter(myAdapter1);
+
+        myDictionary1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+
+        // creating list dictionary code - letter
+        LinkedList<String> dic2 = new LinkedList<String>();
+        LinkedList<String> codes = new LinkedList<String>();
+        codes = translator.getCodes();
+        dic2.add("GUIA código - letra");
+
+        for (String word:codes) {
+            if (word != "") {
+
+                letter = translator.morseToChar(word);
+                dic2.add(word + " = " + letter);
+            }
+
+        }
+
+        Spinner myDictionary = findViewById(R.id.dictionary2);
 
         ArrayAdapter<String> myAdapter2 = new ArrayAdapter<>(MainActivity.this,
-                android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.names0));
+                android.R.layout.simple_list_item_1, dic2);
         myAdapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         myDictionary.setAdapter(myAdapter2);
 
         myDictionary.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-                msg[0] = null;
+
             }
         });
         
