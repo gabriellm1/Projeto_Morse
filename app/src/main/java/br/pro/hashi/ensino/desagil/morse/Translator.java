@@ -212,7 +212,7 @@ public class Translator {
         six.setParent(b);
         this.map.put('6',six);
 
-        Node equals = new Node('=');//Quebra o teste
+        /*Node equals = new Node('=');//Quebra o teste
         b.setRightChild(equals);
         equals.setParent(b);
         this.map.put('=',equals); //Quebra o teste
@@ -220,7 +220,7 @@ public class Translator {
         Node slash = new Node('/');
         x.setLeftChild(slash);
         slash.setParent(x);
-        this.map.put('/',slash); //Quebra o teste
+        this.map.put('/',slash); //Quebra o teste*/
 
         Node seven = new Node('7');
         z.setLeftChild(seven);
@@ -314,6 +314,24 @@ public class Translator {
 
     public LinkedList<String> getCodes() {
 
-       return null;
+        LinkedList<String> list = new LinkedList();
+        Queue<Node> queue = new LinkedList();
+        queue.add(this.root);
+        // root.visited = true;
+
+        while (!queue.isEmpty()){
+            Node NodeChar = queue.poll();
+            if (NodeChar.getValue() != ' '){
+                char letter = NodeChar.getValue();
+                list.add(this.charToMorse(letter));
+            }
+            if (NodeChar.getLeftChild() != null) {
+                queue.add(NodeChar.getLeftChild());
+            }
+            if (NodeChar.getRightChild() != null) {
+                queue.add(NodeChar.getRightChild());
+            }
+        }
+        return list;
     }
 }
