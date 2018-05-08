@@ -114,11 +114,10 @@ public class MainActivity extends AppCompatActivity {
         dic2.add("GUIA código - letra");
 
         for (String word:codes) {
-            if (word != "") {
 
-                letter = translator.morseToChar(word);
-                dic2.add(word + " = " + letter);
-            }
+            letter = translator.morseToChar(word);
+            dic2.add(word + " = " + letter);
+
 
         }
 
