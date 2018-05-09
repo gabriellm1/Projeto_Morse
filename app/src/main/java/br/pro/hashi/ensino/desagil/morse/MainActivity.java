@@ -198,7 +198,7 @@ public class MainActivity extends AppCompatActivity {
 
         sendCuida.setOnClickListener(new View.OnClickListener() {
             String message = null;
-            String contnumb = "011975624243";
+            String contnumb = "011999615552";
 
             @SuppressLint("UnlocalizedSms")
             @Override
@@ -267,13 +267,13 @@ public class MainActivity extends AppCompatActivity {
 
                     if (!msg[0].equals("Fabio está selecionando uma msg...")) {
                         message = msg[0];
-                        contnumb = "011993321768";
+
                     }
                     if (msg[0].equals("Fabio está selecionando uma msg...")) {
                         message = messageTrans.toString();
                         if (message.equals("")) {
                             message = " ";
-                            contnumb = "011993321768";
+
 
                         }
                     }
