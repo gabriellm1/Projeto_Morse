@@ -19,6 +19,7 @@ import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
     private Translator translator = new Translator();
+    private SendSms sendsms = new SendSms();
     private static final int REQUEST_SEND_SMS = 0;
 
 
@@ -36,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         Button button_space = findViewById(R.id.button_space);
         Button sendCuida = findViewById(R.id.button_sendCuida);
         Button sendRafa = findViewById(R.id.button_sendRafa);
+        Button sendContact = findViewById(R.id.button_sendContact);
 
         final String[] msg = {"Fabio está selecionando uma msg..."};
         Spinner mySpinner = findViewById(R.id.spinner);
@@ -192,8 +194,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+
         sendCuida.setOnClickListener(new View.OnClickListener() {
             String message = null;
+            String contnumb = "011975624243";
 
             @SuppressLint("UnlocalizedSms")
             @Override
@@ -208,13 +213,16 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
 
-                SmsManager manager = SmsManager.getDefault();
-                manager.sendTextMessage("011994529712", null, message, null, null);
+                //SmsManager manager = SmsManager.getDefault();
+                //manager.sendTextMessage("011994529712", null, message, null, null);
+
+                sendsms.sendTocontact(contnumb,message);
             }
         });
 
         sendRafa.setOnClickListener(new View.OnClickListener() {
             String message = null;
+            String contnumb = "011975624243";
 
             @SuppressLint("UnlocalizedSms")
             @Override
@@ -229,10 +237,46 @@ public class MainActivity extends AppCompatActivity {
                         message = " ";
                     }
                 }
-                SmsManager manager = SmsManager.getDefault();
-                manager.sendTextMessage("011994529712", null, message, null, null);
-
+                //SmsManager manager = SmsManager.getDefault();
+                //manager.sendTextMessage("011994529712", null, message, null, null);
+                sendsms.sendTocontact(contnumb,message);
             }
+
+
+        });
+
+        sendContact.setOnClickListener(new View.OnClickListener() {
+            String message = null;
+            String contnumb = null;
+            int i;
+
+            @SuppressLint("UnlocalizedSms")
+            @Override
+            public void onClick(View view) {
+
+                if (messageTrans.toString().contains(" ")) {
+                    String[] parts = messageTrans.toString().split(" ");
+                    contnumb = parts[0];
+                    for (i=1;i<parts.length;i++){
+                        message += parts[i] + " ";
+
+                    }
+                } else {
+
+                    if (!msg[0].equals("Fabio está selecionando uma msg...")) {
+                        message = msg[0];
+                    }
+                    if (msg[0].equals("Fabio está selecionando uma msg...")) {
+                        message = messageTrans.toString();
+                        if (message.equals("")){
+                            message = " ";
+                        }
+                    }
+                }
+                sendsms.sendTocontact(contnumb,message);
+            }
+
+
         });
 
     }
