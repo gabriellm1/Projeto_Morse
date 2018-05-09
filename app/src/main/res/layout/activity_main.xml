@@ -14,11 +14,10 @@
         android:id="@+id/button_sendRafa"
         android:layout_width="116dp"
         android:layout_height="76dp"
-        android:layout_alignEnd="@+id/button_morse"
         android:layout_alignParentBottom="true"
         android:layout_column="0"
-        android:layout_marginBottom="35dp"
         android:layout_row="3"
+        android:layout_toStartOf="@+id/button_sendContact"
         android:layout_weight="2"
         android:backgroundTint="@android:color/holo_blue_light"
         android:text="PARA RAFAEL" />
@@ -28,9 +27,9 @@
         android:layout_width="116dp"
         android:layout_height="76dp"
         android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/button_space"
         android:layout_column="3"
         android:layout_row="3"
+        android:layout_toEndOf="@+id/button_sendContact"
         android:layout_weight="1"
         android:backgroundTint="@android:color/holo_orange_light"
         android:text="PARA CUIDADOR" />
@@ -51,11 +50,10 @@
     <Spinner
         android:id="@+id/spinner"
         android:layout_width="308dp"
-        android:layout_height="38dp"
-        android:layout_alignParentTop="true"
+        android:layout_height="129dp"
+        android:layout_above="@+id/button_sendRafa"
         android:layout_centerHorizontal="true"
         android:layout_column="0"
-        android:layout_marginTop="166dp"
         android:layout_row="1" />
 
     <Spinner
@@ -72,8 +70,9 @@
         android:layout_width="136dp"
         android:layout_height="76dp"
         android:layout_alignParentStart="true"
-        android:layout_centerVertical="true"
+        android:layout_alignParentTop="true"
         android:layout_column="0"
+        android:layout_marginTop="202dp"
         android:layout_row="6"
         android:backgroundTint="@android:color/darker_gray"
         android:elevation="17dp"
@@ -84,7 +83,7 @@
         android:layout_width="wrap_content"
         android:layout_height="76dp"
         android:layout_alignParentEnd="true"
-        android:layout_centerVertical="true"
+        android:layout_alignTop="@+id/button_morse"
         android:layout_column="0"
         android:layout_row="6"
         android:backgroundTint="@android:color/holo_red_light"

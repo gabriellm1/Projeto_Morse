@@ -246,14 +246,14 @@ public class MainActivity extends AppCompatActivity {
         });
 
         sendContact.setOnClickListener(new View.OnClickListener() {
-            String message = null;
+            String message = "";
             String contnumb = null;
             int i;
 
             @SuppressLint("UnlocalizedSms")
             @Override
             public void onClick(View view) {
-
+                message = "";
                 if (messageTrans.toString().contains(" ")) {
                     String[] parts = messageTrans.toString().split(" ");
                     contnumb = parts[0];
@@ -263,13 +263,17 @@ public class MainActivity extends AppCompatActivity {
                     }
                 } else {
 
+                    contnumb = messageTrans.toString();
+
                     if (!msg[0].equals("Fabio está selecionando uma msg...")) {
                         message = msg[0];
                     }
                     if (msg[0].equals("Fabio está selecionando uma msg...")) {
                         message = messageTrans.toString();
-                        if (message.equals("")){
+                        if (message.equals("")) {
                             message = " ";
+                            contnumb = "011993321768";
+
                         }
                     }
                 }
