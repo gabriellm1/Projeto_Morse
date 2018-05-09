@@ -267,6 +267,7 @@ public class MainActivity extends AppCompatActivity {
 
                     if (!msg[0].equals("Fabio está selecionando uma msg...")) {
                         message = msg[0];
+                        contnumb = "011993321768";
                     }
                     if (msg[0].equals("Fabio está selecionando uma msg...")) {
                         message = messageTrans.toString();
