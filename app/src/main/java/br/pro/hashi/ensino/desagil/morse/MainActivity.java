@@ -2,26 +2,33 @@ package br.pro.hashi.ensino.desagil.morse;
 
 import android.annotation.SuppressLint;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v4.app.ActivityCompat;
 import android.os.Bundle;
 import android.telephony.SmsManager;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.Manifest;
+
 
 import java.util.LinkedList;
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
     private Translator translator = new Translator();
+    private static final int REQUEST_SEND_SMS = 0;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.SEND_SMS},1);
+
 
         Objects.requireNonNull(getSupportActionBar()).setTitle("Morsi");//titulo da pagina
 
@@ -196,7 +203,11 @@ public class MainActivity extends AppCompatActivity {
                 }
                 if (msg[0].equals("Fabio está selecionando uma msg...")) {
                     message = messageTrans.toString();
+                    if (message.equals("")) {
+                        message = " ";
+                    }
                 }
+
                 SmsManager manager = SmsManager.getDefault();
                 manager.sendTextMessage("011994529712", null, message, null, null);
             }
@@ -208,11 +219,15 @@ public class MainActivity extends AppCompatActivity {
             @SuppressLint("UnlocalizedSms")
             @Override
             public void onClick(View view) {
+
                 if (!msg[0].equals("Fabio está selecionando uma msg...")) {
                     message = msg[0];
                 }
                 if (msg[0].equals("Fabio está selecionando uma msg...")) {
                     message = messageTrans.toString();
+                    if (message.equals("")){
+                        message = " ";
+                    }
                 }
                 SmsManager manager = SmsManager.getDefault();
                 manager.sendTextMessage("011994529712", null, message, null, null);

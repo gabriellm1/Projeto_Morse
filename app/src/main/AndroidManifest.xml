@@ -23,4 +23,5 @@
     <!-- Se esquecer esta tag, o aplicativo explode ao tentar pedir permissão. -->
     <uses-permission android:name="android.permission.SEND_SMS" />
 
+
 </manifest>
